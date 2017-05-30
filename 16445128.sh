@@ -2,7 +2,7 @@
 
 # arguments check
 if [ $# -lt 1 ]; then
-  echo "same2.sh requires 2 string inputs" 1>&2
+  echo "requires 2 string inputs" 1>&2
   exit 1
 fi
 
@@ -38,3 +38,4 @@ while [ 0 -ne "$val2" ]; do
 done
 
 echo $val1
+
