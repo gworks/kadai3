@@ -2,8 +2,8 @@
 
 # arguments check
 if [ $# -lt 1 ]; then
-  echo "requires 2 string inputs" 1>&2
-  exit 1
+  echo "requires 2 string inputs" 1>&2 # リダイレクトでエラー表示
+  exit 1 # エラー終了
 fi
 
 val1=$1
@@ -11,22 +11,22 @@ val2=$2
 
 expr ${val1} + 1 > /dev/null 2>&1
 if [ $? -eq 2 ] ; then
-  echo "最初の引数が数字ではありません"
-  exit
+  echo "最初の引数が数字ではありません" # エラーの文字はリダイレクトを利用して標準エラー出力へ
+  exit # エラー終了の exit 1にしましょう。それに合わせてtest_16445128.shも変えましょう。
 fi
 expr ${val2} + 1 > /dev/null 2>&1
 if [ $? -eq 2 ] ; then
   echo "二つ目の引数が数字ではありません"
-  exit
+  exit # 同様
 fi
 
 if [ 0 -eq "$val1" ]; then
   echo "最初の引数が自然数ではありません"
-  exit
+  exit # 同様
 fi
 if [ "$val2" -eq 0 ]; then
   echo "二つ目の引数が自然数ではありません"
-  exit
+  exit # 同様
 fi
 
 
